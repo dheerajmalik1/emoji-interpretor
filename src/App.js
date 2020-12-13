@@ -31,6 +31,11 @@ export default function App() {
     setEmojiMeaning(meaning);
   }
 
+  function emojiClickHandler(emoji) {
+    let meaning = emojiDictionary[emoji];
+    setEmojiMeaning(meaning);
+  }
+
   return (
     <div style={{}} className="App">
       <h1>Welcome to emoji interpretor</h1>
@@ -40,7 +45,13 @@ export default function App() {
       <h3>Emojis we know </h3>
       {emojisWeKnow.map((emojis) => {
         return (
-          <span key={emojis} style={{ padding: ".7rem", fontSize: "2rem" }}>
+          <span
+            onClick={() => {
+              emojiClickHandler(emojis);
+            }}
+            key={emojis}
+            style={{ padding: ".7rem", fontSize: "2rem" }}
+          >
             {emojis}
           </span>
         );
